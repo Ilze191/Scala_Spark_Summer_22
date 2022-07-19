@@ -30,10 +30,9 @@ SELECT DEST_COUNTRY_NAME, sum(count) as flight_counts
 FROM flight_data_2014
 GROUP BY DEST_COUNTRY_NAME
 ORDER BY sum(count) DESC
-LIMIT 10
 """)
 
-  maxFlights.show()
+  maxFlights.show(10)
 
 
 
