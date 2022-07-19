@@ -21,12 +21,11 @@ object Day18Exercise extends App {
 
   //TODO open up flight Data from 2014
   //TODO create SQL view
-
   //TODO ORDER BY flight counts
   //TODO show top 10 flights
 
   val maxFlights = spark.sql("""
-SELECT DEST_COUNTRY_NAME, sum(count) as flight_counts
+SELECT DEST_COUNTRY_NAME, sum(count) as FLIGHTS
 FROM flight_data_2014
 GROUP BY DEST_COUNTRY_NAME
 ORDER BY sum(count) DESC
@@ -34,7 +33,14 @@ ORDER BY sum(count) DESC
 
   maxFlights.show(10)
 
-
-
+//  val maxFlights = spark.sql("""
+//SELECT DEST_COUNTRY_NAME, sum(count) as FLIGHTS
+//FROM flight_data_2014
+//GROUP BY DEST_COUNTRY_NAME
+//ORDER BY sum(count) DESC
+//LIMIT 10
+//""")
+//
+//  maxFlights.show()
 
 }
