@@ -50,5 +50,9 @@ object Day20StructuredAPI extends App{
   val anotherDataFrame = spark.range(100,3100).toDF().collect()
   anotherDataFrame.reverse.take(5).foreach(println)
 
+  val df100to31000 = range1To31.select(range1To31.col("JulyNumbers")*100)
+  df100to31000.collect().reverse.take(5).foreach(println)
+
+
 
 }
