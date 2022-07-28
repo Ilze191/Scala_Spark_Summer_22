@@ -37,7 +37,7 @@ object Day22Exercise extends App {
     println(s"DataFrame No. $i has ${dFr.count} rows")
   }
 
-val dPercentages= dataFrames.map(d => d.count() * 100 / df.count())
+val dPercentages = dataFrames.map(d => d.count() * 100 / df.count())
 
   println(s"DataFrame is split by percentages --> ${dPercentages.mkString(", ")}")
 
