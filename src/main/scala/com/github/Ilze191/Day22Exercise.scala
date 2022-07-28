@@ -1,9 +1,6 @@
 package com.github.Ilze191
 
-import org.apache.spark.sql.{DataFrame, Dataset, Row}
 import org.apache.spark.sql.functions.col
-
-import scala.util.Random
 
 object Day22Exercise extends App {
   val spark = SparkUtil.getSpark("Sparky")
@@ -13,7 +10,7 @@ object Day22Exercise extends App {
   val df = spark.read.format("json")
     .load(flightPath)
 
-  df.show(5)
+ // df.show(5)
 
   //TODO Task 1 - Filter only flights FROM US that happened more than 10 times
   df.where(col("ORIGIN_COUNTRY_NAME") === "United States")
@@ -37,7 +34,7 @@ object Day22Exercise extends App {
     println(s"DataFrame No. $i has ${dFr.count} rows")
   }
 
-val dPercentages = dataFrames.map(d => d.count() * 100 / df.count())
+  val dPercentages = dataFrames.map(d => d.count() * 100 / df.count())
 
   println(s"DataFrame is split by percentages --> ${dPercentages.mkString(", ")}")
 
