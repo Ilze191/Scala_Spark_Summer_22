@@ -33,17 +33,14 @@ object Day22Exercise extends App {
   //subtask I want to see the row count for these dataframes and percentages
   val dataFrames = df.randomSplit(Array(2, 9, 5), seed)
 
-  for ((dFrame, i) <- dataFrames.zipWithIndex) {
-    println(s"DataFrame No. $i has ${dFrame.count} rows")
+  for ((dFr, i) <- dataFrames.zipWithIndex) {
+    println(s"DataFrame No. $i has ${dFr.count} rows")
   }
 
-  def getDataFrameStats(dFrames:Array[Dataset[Row]], df:DataFrame): Array[Long] = {
-    dFrames.map(d => d.count() * 100 / df.count())
-  }
+val dPercentages= dataFrames.map(d => d.count() * 100 / df.count())
 
-  val dPercentages= getDataFrameStats(dataFrames, df)
-  println("DataFrame percentages")
-  dPercentages.foreach(println)
+  println(s"DataFrame is split by percentages --> ${dPercentages.mkString(", ")}")
+
 
 
 
