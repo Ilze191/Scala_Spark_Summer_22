@@ -16,9 +16,10 @@ object Day23Exercise extends App {
   //TODO get all purchases that have been made from Finland
   //TODO sort by Unit Price and LIMIT 20
   //TODO collect results into an Array of Rows
-  //print these 20 Rows
+
  val finlandRows20 =  spark.sql("SELECT * FROM marchTable WHERE Country = 'Finland' ORDER BY UnitPrice LIMIT 20").collect()
 
+  //print these 20 Rows
   for ((row, i) <- finlandRows20.zipWithIndex) {
  println(s"Row No. ${i+1} -> $row")
      }
