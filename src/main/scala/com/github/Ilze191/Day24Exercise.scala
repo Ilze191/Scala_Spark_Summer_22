@@ -14,8 +14,8 @@ object Day24Exercise extends App {
   val filePath = "src/resources/retail-data/by-day/2011-03-01.csv"
   val df = readCSVWithView(spark, filePath)
 
-  val replacement = Seq("wood", "metal")
-  val regexString = replacement.map(_.toUpperCase).mkString("|")
+  val replaceableWords = Seq("wood", "metal")
+  val regexString = replaceableWords.map(_.toUpperCase).mkString("|")
 
   val containsWood = col("Description").contains("WOOD")
   val containsMetal = col("Description").contains("METAL")
