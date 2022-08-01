@@ -28,7 +28,7 @@ object Day24Exercise extends App {
     initcap(col("Description")).alias("Capitalized description"),
     lpad(rpad(col("Country"), 22, "_"), 30, "_").alias("Country"), //padding is even only for UK
     regexp_replace(col("Description"), regexString, "MATERIAL").alias("Description modifications with 'Material'")
-  ).show(10,false)
+  ).show(10, false)
 
   
 }
