@@ -21,11 +21,12 @@ object Day26Exercise extends App{
 
   val df = readDataWithView(spark, filePath)
 
-  df.withColumn("Splitted", split(col("Description"), " "))
-    .withColumn("Array_Length", size(col("Splitted")))
-    .selectExpr("Splitted[0] as 1st", "Splitted[1] as 2nd","Splitted[2] as 3rd", "Splitted", "Array_Length")
+  df.withColumn("Description_Array", split(col("Description"), " "))
+    .withColumn("Array_Length", size(col("Description_Array")))
+   // .selectExpr("Description_Array", "Array_Length", "Description_Array[0] as 1st", "Description_Array[1] as 2nd","Description_Array[2] as 3rd")
+    .selectExpr("*", "Description_Array[0] as 1st", "Description_Array[1] as 2nd","Description_Array[2] as 3rd")
     .where("Array_Length >= 3")
     .orderBy(desc("1st"))
-    .show(10, false)
+    .show(10)
 
 }
