@@ -15,9 +15,6 @@ object Day27Exercise extends App {
   val tempDF = spark.range(-40, 121).toDF("F_temp")
   def fahrenheitToC(f: Double):Double = ((f - 32) * 5 / 9).round
   val fToCUdf = udf(fahrenheitToC(_:Double):Double)
-  spark.udf.register("Temperatures", fahrenheitToC(_:Double):Double)
-  //tempDF.selectExpr("Temperatures(F_temp)").show(5)
-
 
   tempDF
     .withColumn("C_temp", fToCUdf(col("F_temp")))
