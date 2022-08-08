@@ -22,7 +22,8 @@ object Day27Exercise extends App {
   tempDF
     .withColumn("C_temp", fToCUdf(col("F_temp")))
     .select("*")
-    .where("F_temp >= 90 AND F_temp <= 110").show(21)
+    .where("F_temp >= 90 AND F_temp <= 110")
+    .show(21)
 
 
 
