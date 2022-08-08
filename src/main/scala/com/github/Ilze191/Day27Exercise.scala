@@ -23,7 +23,13 @@ object Day27Exercise extends App {
     .withColumn("C_temp", fToCUdf(col("F_temp")))
     .select("*")
     .where("F_temp >= 90 AND F_temp <= 110")
-    .show(21)
+   // .show(21)
+    .show(tempDF.count.toInt)
+
+  //TODO simple task find count, distinct count and also aproximate distinct count (with default RSD)
+  // for InvoiceNo, CustomerID AND UnitPrice columns
+  //of course count should be the same for all of these because that is the number of rows
+
 
 
 
