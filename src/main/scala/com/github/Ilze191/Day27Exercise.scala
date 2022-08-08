@@ -18,10 +18,11 @@ object Day27Exercise extends App {
   spark.udf.register("Temperatures", fahrenheitToC(_:Double):Double)
   //tempDF.selectExpr("Temperatures(F_temp)").show(5)
 
+
   tempDF
     .withColumn("C_temp", fToCUdf(col("F_temp")))
     .select("*")
-    .where("F_temp >= 90 AND F_temp <= 110").show()
+    .where("F_temp >= 90 AND F_temp <= 110").show(21)
 
 
 
