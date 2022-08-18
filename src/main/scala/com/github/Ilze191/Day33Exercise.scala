@@ -24,7 +24,7 @@ object Day33Exercise extends App{
   tokenDF.show()
 
   //TODO create column called textLen which will be a character count in text column //https://spark.apache.org/docs/2.3.0/api/sql/index.html#length can use or also length function from spark
-
+  tokenDF.withColumn("textLen",expr("length('text')")).show()
   //TODO create column wordCount which will be a count of words in words column //can use count or length - words column will be Array type
   //TODO create Vector Assembler which will transform textLen and wordCount into a column called features //features column will have a Vector with two of those values
 
